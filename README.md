@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Users and Friends suggetion react app:
+========================================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Friends suggestion list designed with react component on api router interaction and axios call to interat with service which is built on spring boot micro service architecture java api application.
 
-## Available Scripts
+React components are segregated based on below uses cases:
 
-In the project directory, you can run:
+    Use case1: Dispaly user list details on Get endpoint http://localhost:3000/users
 
-### `npm start`
+    Use case2: Display specific user friendlist on  Get endpoint http://localhost:3000/friends/{userId}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Use Case3: Display friends of friends list on  Get endpoint http://localhost:3000/friends/fofList/{userId}
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    Use Case4: Display friends based on geo location(filtered by location)  Get endpoint http://localhost:3000/geoFriendList?city=London&userId=1
+    
+# To run front end react application:
+=====================================
+    npm start
+    
+# Suggetion:
+============
+    UI can be improved based user selection on table row.
 
-### `npm test`
+# Java service  + Spring boot 
+=============================
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Friends suggestions service application designed on micro service architecture with Java + Spring Boot + Hibernate JAP + in-memory data base.
 
-### `npm run build`
+   Use Case 1: Dispaly all users in the system
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   Use Case 2 : Display friends of given userId
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Use Case 3: Display friends of friends that exclude current user + duplicate friends in friend of friend list
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Use Case 4: Display firends based on geo location that exclude the current user
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Security: 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Spring web app filter applied to filter unnecessary access to the application and cross origin enabled to support this specific front end  react application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Databse :
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Designed with two different table users and friends relation.
 
-## Learn More
+        1. Users  as primay table.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+        2. Friends relation table as secondary  table.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+User_Id as common reference table .
 
-### Code Splitting
+# TODo :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+        This could be stored as UUID format in real time application to maintain unique records.
 
-### Analyzing the Bundle Size
+        Consider OnetoMany relation table structure.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
